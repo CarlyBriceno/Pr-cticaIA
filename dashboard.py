@@ -17,9 +17,18 @@ except Exception as e:
     st.error(f"Error al cargar el archivo CSV: {e}")
     st.stop()
 
+# Mostrar nombres de columnas para depuración
+st.write("Columnas en el archivo CSV:", list(df.columns))
+
+# Verificar si las columnas requeridas están presentes
+required_columns = ['Genero', 'Dificultadrecordando', 'Dificultadconcetracion']
+missing_columns = [col for col in required_columns if col not in df.columns]
+if missing_columns:
+    st.error(f"Error: Las siguientes columnas no se encuentran en el CSV: {missing_columns}")
+    st.stop()
+
 # Asegurar nombres de columnas correctos y filtrar las necesarias
 df = df[['Genero', 'Dificultadrecordando', 'Dificultadconcetracion']]
-df.columns = ['Genero', 'Dificultadrecordando', 'Dificultadconcetracion']  # Estandarizar nombres
 
 # Mapeo de valores para mejor legibilidad
 genero_map = {1: 'Hombre', 2: 'Mujer'}
