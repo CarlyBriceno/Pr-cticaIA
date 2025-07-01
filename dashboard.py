@@ -10,9 +10,9 @@ st.set_page_config(page_title="Dashboard Dificultades Cognitivas", layout="wide"
 # Título
 st.title("Dificultad de concentración y memoria entre dos géneros")
 
-# Cargar datos desde el archivo local
+# Cargar datos desde el archivo local con codificación latin1
 try:
-    df = pd.read_csv("CopiaAnalisis.csv")
+    df = pd.read_csv("CopiaAnalisis.csv", encoding='latin1')
 except Exception as e:
     st.error(f"Error al cargar el archivo CSV: {e}")
     st.stop()
