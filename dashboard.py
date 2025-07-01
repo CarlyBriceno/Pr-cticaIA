@@ -10,10 +10,9 @@ st.set_page_config(page_title="Dashboard Dificultades Cognitivas", layout="wide"
 # Título
 st.title("Dificultad de concentración y memoria entre dos géneros")
 
-# Cargar datos desde GitHub (reemplaza con la URL directa de tu archivo CSV en GitHub)
-csv_url = "https://raw.githubusercontent.com/YourUsername/YourRepository/main/CopiaAnalisis.csv"  # Cambia por la URL real
+# Cargar datos desde el archivo local
 try:
-    df = pd.read_csv(csv_url)
+    df = pd.read_csv("CopiaAnalisis.csv")
 except Exception as e:
     st.error(f"Error al cargar el archivo CSV: {e}")
     st.stop()
